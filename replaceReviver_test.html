@@ -1,0 +1,39 @@
+<script src="replaceReviver.js" type="text/javascript"></script>
+<script type="text/javascript">
+  // Test replaceReviver
+  var jsonString = JSON.stringify({
+    "a": "kitten",
+    "b": [
+      "kitten",
+      "alpaca"
+    ]
+  });
+  var transformations = [
+    [new RegExp("kitten"), "puppy"],
+    [new RegExp("alpaca"), "unicorn"]
+  ];
+  jsonTransformed = JSON.parse(
+    jsonString,
+    replaceReviver(transformations)
+  );
+  console.log(jsonTransformed);
+  
+// Test easyRevive  
+  var jsonString = JSON.stringify({
+    "a": "kitten. kitten.",
+    "b": [
+      "kitten/",
+      "alpaca/"
+    ]
+  });
+  var transformations = [
+    ["kitten.", "puppy."],
+    ["alpaca/", "unicorn/"]
+  ];
+  jsonTransformed = JSON.parse(
+    jsonString,
+    replaceReviver(transformations)
+  );
+  jsonTransformed = easyRevive(jsonString, transformations);  
+  console.log(jsonTransformed);
+</script>
