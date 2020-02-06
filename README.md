@@ -33,6 +33,5 @@ replaceReviver.js contains the code, while replaceReviver_test.html contains a d
 Returns a function that can serve as reviver in JSON.parse. Pattern to replace are written as regular expressions.
 
 ## easyRevive(jsonString, transformations)
-Applies a set of transformations in which each patterns to replace is used 
-as a literal string that is globally matched.
+Applies a set of transformations in which each pattern to replace is treated as a literal string that is globally matched.
 
